@@ -185,6 +185,7 @@ Ex: SELECT SUM(column_name) FROM table_name WHERE condition;
  
 Note: MS Access uses an asterisk (*) instead of the percent sign (%), and a question mark (?) instead of the underscore (_).
 
+
 //SQL Wildcard Characters
 *A wildcard character is used to substitute one or more characters in a string.
 
@@ -371,3 +372,6 @@ ORDER BY
 END);
 
 
+//SQL NULL Functions
+*SQL IFNULL(), ISNULL(), COALESCE(), and NVL() Functions-- for different databases
+Ex: SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))FROM Products;
