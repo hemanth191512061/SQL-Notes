@@ -503,10 +503,26 @@ Ex: TRUNCATE TABLE table_name;
 //SQL ALTER TABLE Statement
 *The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
 Ex: ALTER TABLE table_name ADD column_name datatype;
+    ALTER TABLE Persons ADD DateOfBirth date;
     ALTER TABLE Customers ADD Email varchar(255);--to add column
     ALTER TABLE table_name DROP COLUMN column_name;
     ALTER TABLE Customers DROP COLUMN Email;--to drop column
     ALTER TABLE table_name ALTER COLUMN column_name datatype;(Alter or modify keywords can be used based on database)
+    ALTER TABLE Persons ALTER COLUMN DateOfBirth year;--modify data tye
+
+//SQL Create Constraints
+*SQL constraints are used to specify rules for data in a table.
+*Constraints can be specified when the table is created with the CREATE TABLE statement, or after the table is created with the ALTER TABLE statement.
+*If there is any violation between the constraint and the data action, the action is aborted.
+*Constraints can be column level or table level. Column level constraints apply to a column, and table level constraints apply to the whole table.
+Ex; CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+    );
+
+
 
 
 
