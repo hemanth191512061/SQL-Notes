@@ -458,5 +458,55 @@ NOT	Displays a record if the condition(s) is NOT TRUE
 OR	TRUE if any of the conditions separated by OR is TRUE	
 SOME	TRUE if any of the subquery values meet the condition
 
+//SQL CREATE DATABASE Statement
+*The CREATE DATABASE statement is used to create a new SQL database.
+Ex: CREATE DATABASE databasename;
+    CREATE DATABASE testDB;
+    SHOW DATABASES;--list the databases
+
+//SQL DROP DATABASE Statement
+*The DROP DATABASE statement is used to drop an existing SQL database.
+Ex: DROP DATABASE databasename;
+    DROP DATABASE testDB;
+    
+//SQL BACKUP DATABASE for SQL Server
+The BACKUP DATABASE statement is used in SQL Server to create a full back up of an existing SQL database.
+Ex: BACKUP DATABASE databasename TO DISK = 'filepath';
+    BACKUP DATABASE testDB TO DISK = 'D:\backups\testDB.bak';
+
+*A differential back up only backs up the parts of the database that have changed since the last full database backup.
+Ex: BACKUP DATABASE databasename TO DISK = 'filepath' WITH DIFFERENTIAL;
+*The new table gets the same column definitions. All columns or specific columns can be selected.
+    BACKUP DATABASE testDB TO DISK = 'D:\backups\testDB.bak' WITH DIFFERENTIAL;
+    
+//SQL CREATE TABLE Statement  
+*The CREATE TABLE statement is used to create a new table in a database.
+Ex: CREATE TABLE table_name ( column1 datatype, column2 datatype, column3 datatype, ....  );
+    CREATE TABLE Persons ( PersonID int, LastName varchar(255), FirstName varchar(255), Address varchar(255), City varchar(255) );
+*The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).
+
+#Create Table Using Another Table
+*A copy of an existing table can also be created using CREATE TABLE.
+*The new table gets the same column definitions. All columns or specific columns can be selected. The new table will be filled with the existing values from the old table.
+Ex: CREATE TABLE new_table_name AS SELECT column1, column2,... FROM existing_table_name WHERE ....;
+    CREATE TABLE TestTable AS SELECT customername, contactname FROM customers;
+
+//SQL DROP TABLE Statement
+*The DROP TABLE statement is used to drop an existing table in a database.
+Ex: DROP TABLE table_name;
+    DROP TABLE Shippers;
+    
+#SQL TRUNCATE TABLE
+*The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
+Ex: TRUNCATE TABLE table_name;
+
+//SQL ALTER TABLE Statement
+*The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+Ex: ALTER TABLE table_name ADD column_name datatype;
+    ALTER TABLE Customers ADD Email varchar(255);--to add column
+    ALTER TABLE table_name DROP COLUMN column_name;
+    ALTER TABLE Customers DROP COLUMN Email;--to drop column
+    ALTER TABLE table_name ALTER COLUMN column_name datatype;(Alter or modify keywords can be used based on database)
+
 
 
