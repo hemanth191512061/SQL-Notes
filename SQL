@@ -12,6 +12,8 @@ Each statement is seperated by a semicolon in SQL
 *Every individual cell is called field which have infromation about record.
 *Record is horizontal entity which have field. Table have records
 *Column is a vertical entity of Table which have information.
+*MySQL is an inexpensive alternative to the expensive Microsoft and Oracle solutions.
+*MS Access is not well suited for very high-traffic, and not as powerful as MySQL, SQL Server, or Oracle.
 
 //Using SQL in Your Web Site
 To build a web site that shows data from a database, you will need:
@@ -682,5 +684,23 @@ Ex: CREATE VIEW view_name AS SELECT column1, column2, ... FROM table_name WHERE 
     DROP VIEW view_name;--to drop a view
     DROP VIEW [Brazil Customers];
 
+//SQL Injection
+*SQL injection is a code injection technique that might destroy your database.
+*SQL injection is one of the most common web hacking techniques.
+*SQL injection is the placement of malicious code in SQL statements, via web page input.
+txtUserId = getRequestString("UserId");
+txtSQL = "SELECT * FROM Users WHERE UserId = " + txtUserId;
+Ex: SELECT UserId, Name, Password FROM Users WHERE UserId = 105 or 1=1;--malicious code to hack database
 
+#SQL Injection Based on Batched SQL Statements 
+*Most databases support batched SQL statement.
+*A batch of SQL statements is a group of two or more SQL statements, separated by semicolons. 
+Ex: SELECT * FROM Users WHERE UserId = 105; DROP TABLE Suppliers;
+
+#SQL Parameters
+*To protect a web site from SQL injection, you can use SQL parameters.
+*SQL parameters are values that are added to an SQL query at execution time, in a controlled manner.
+Ex: txtUserId = getRequestString("UserId");
+txtSQL = "SELECT * FROM Users WHERE UserId = @0";
+db.Execute(txtSQL,txtUserId);
 
