@@ -704,3 +704,37 @@ Ex: txtUserId = getRequestString("UserId");
 txtSQL = "SELECT * FROM Users WHERE UserId = @0";
 db.Execute(txtSQL,txtUserId);
 
+WebDriver Driver;
+		webDriverSelection web=new webDriverSelection();
+		Driver=web.driver();
+		String URL=web.URL();
+		Driver.get(URL);
+		
+    
+    public WebDriver driver() throws IOException {
+		WebDriver Web = null;
+		FileInputStream file = new FileInputStream(
+				"C:\\Users\\844820\\eclipse-workspace\\testingtheapp\\WebDriver Selection.properties");
+		Properties prop = new Properties();
+		prop.load(file);
+
+		if (prop.getProperty("Driver").equalsIgnoreCase("chrome")) {
+
+			System.setProperty("webdriver.chrome.driver",
+					"C:\\Users\\844820\\Downloads\\chromedriver_win32 (3)\\chromedriver.exe");
+			Web = (WebDriver) new ChromeDriver();
+
+		}
+
+		return Web;
+	}
+
+	public String URL() throws IOException {
+		FileInputStream file = new FileInputStream(
+				"C:\\Users\\844820\\eclipse-workspace\\testingtheapp\\WebDriver Selection.properties");
+		Properties prop = new Properties();
+		prop.load(file);
+
+		String URL = prop.getProperty("URL");
+		return URL;
+	}
