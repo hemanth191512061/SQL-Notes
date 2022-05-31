@@ -1,4 +1,4 @@
-//SQL---Resource W3Schools
+//SQL---Resource W3Schools////
 SQL means Structured query Language.
 SQL is a standard language for accessing and manipulating databases.
 SQL is language used to communicate with the Database.
